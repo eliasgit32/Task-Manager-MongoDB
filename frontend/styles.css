@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+#navbar-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+#nav-title {
+    color: #ffffff;
+}
+
+nav {
+    margin: 0 0 40px;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+#update-project-form {
+    display: none;
+}
+
+#task-form {
+    display: none;
+}
+
+#project-list {
+    margin: 0 20px;
+}
+
+.project-container {
+    margin-bottom: 30px;
+}
+
+textarea {
+    resize: none;
+    text-decoration: none;
+}
+
+.project-title .ui-icon.ui-icon-closethick {
+    float: right;
+    display: block;
+    margin-top: 6px;
+    margin-right: 5px;
+    background-color: #114c53;
+    font-size: 15px;
+}
+
+.ui-icon.ui-icon-closethick.delete-task-icon {
+    float: right;
+    display: block;
+    margin-top: 6px;
+    margin-right: 10px;
+    background-color: #114c53;
+    font-size: 15px;
+}
+
+.task-list li label {
+    cursor: pointer;
+}
+
+.update-project-button.ui-button {
+    font-size: 14px;
+    margin-left: 25px;
+}
+
+.task-button.ui-button {
+    font-size: 14px;
+    margin-top: 25px;
+}
+

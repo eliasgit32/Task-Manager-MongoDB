@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- JQuery UI -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="frontend/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="frontend/jquery-ui-1.13.2.custom/jquery-ui.min.css">
+
+  <link rel="stylesheet" href="frontend/styles.css">
+  <title>Task manager</title>
+</head>
+
+<body>
+  <header>
+    <div class="ui-widget" id="navbar-container">
+      <nav class="ui-widget-header">
+        <ul id="navbar-list">
+          <li id="nav-title">Task Manager</li>
+          <li><button class="ui-button" id="add-proyect-button">Añadir Proyecto</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Formulario  ingreso de nuevos proyectos -->
+  <div id="proyect-form" title="Nuevo Proyecto">
+    <form>
+      <label for="name">Nombre:</label>
+      <input type="text" id="project-name" name="name">
+      <label for="description">Descripción:</label>
+      <textarea id="project-description" name="description"></textarea>
+    </form>
+  </div>
+
+  <!-- Formulario actualización de proyectos -->
+  <div id="update-project-form" title="Proyecto">
+    <form>
+      <label for="name">Nombre:</label>
+      <input type="text" id="update-project-name" name="name">
+      <label for="description">Descripción:</label>
+      <textarea id="update-project-description" name="description"></textarea>
+    </form>
+  </div>
+
+  <!-- Formulario  ingreso de nuevas tareas -->
+  <div id="task-form" title="Nueva Tarea">
+    <form>
+      <label for="task">Tarea:</label>
+      <input type="text" id="task-name" name="task">
+    </form>
+  </div>
+
+  <!-- Contenedor de los proyectos -->
+  <div id="project-list-container">
+    <ul id="project-list">
+    </ul>
+  </div>
+
+  <script src="frontend/AJAX.js"></script>
+  <script>
+    $(document).ready(() =>{ 
+      getProyects();
+      insertProyectModal();
+
+      //Agregar eventos
+      $('#add-proyect-button').click(() => {
+        $("#proyect-form").dialog("open");
+      });
+
+      
+    });
+
+    //Agregar formulario modal de inserción de proyecto
+    function insertProyectModal() {
+        //Crea el modal y establece sus opciones
+        $("#proyect-form").dialog({
+          autoOpen: false,
+          modal: true,
+          buttons: {
+            "Crear Proyecto": () => {
+              insertProyect();
+              $("#proyect-form").dialog("close");
+            },
+            "Cancelar": () => {
+              //Cierra el modal al hacer clic en el botón "Cancelar"
+              $("#proyect-form").dialog("close");
+            }
+          }
+        });
+    }
+  </script>
+ 
+</body>
+
+</html>
